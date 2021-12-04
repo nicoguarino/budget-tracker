@@ -5,7 +5,7 @@ const FILES_TO_CACHE = [
     '/',
     './index.html',
     './manifest.json',
-    './css/style.css',
+    './css/styles.css',
     './js/index.js',
     './js/idb.js',
     './icons/icon-72x72.png',
@@ -24,6 +24,7 @@ self.addEventListener('install', function (evt) {
     evt.waitUntil(
         caches.open(CACHE_NAME).then(cache => {
             console.log('Your files were pre-cached successfully!');
+            console.log(FILES_TO_CACHE);
             return cache.addAll(FILES_TO_CACHE);
         })
     );
